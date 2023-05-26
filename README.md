@@ -1,5 +1,10 @@
 # Learning Path: Technical ETL, Airflow, GCP, BigQuery, Kafka in Banking Domain
 
+![image](./00-ETL-with-Airflow-Architecture.png)
+
+## Setup:
+- [Developer Starter](./00-install/install.md) contains everything needed in order to get started ETL.
+
 ## Beginner Level:
 
 ### 1. Introduction to ETL in Banking
