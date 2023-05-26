@@ -48,30 +48,40 @@
 - Fundamentals of Apache Kafka
 - Stream processing and event-driven architecture in the banking domain
 
+### 12. Big Data Lab: Analyzing Customer Behavior
+- Analyze customer behavior using banking transaction data
+- Perform customer segmentation, pattern analysis, and recommendation system development
+
+### 13. Big Data Lab: Fraud Detection
+- Build a fraud detection system using banking transaction data
+- Apply anomaly detection techniques and machine learning algorithms for fraud detection
+
 ## Advanced Level:
 
-### 12. Advanced Data Transformations in Banking
+### 14. Advanced Data Transformations in Banking
 - Advanced techniques for banking data transformations
 - Customer segmentation, churn prediction, time-series analysis, anomaly detection
 
-### 13. Monitoring and Alerting for Banking ETL
+### 15. Monitoring and Alerting for Banking ETL
 - Monitoring ETL workflows in the banking domain
 - Data quality, performance, SLAs, anomaly alerts
 
-### 14. Scaling and Optimization in Banking ETL
+### 16. Scaling and Optimization in Banking ETL
 - Scaling and optimizing ETL workflows in banking
 - Parallel processing, data partitioning, performance tuning, cost optimization
 
-### 15. Advanced BigQuery Features for Banking
+### 17. Advanced BigQuery Features for Banking
 - Advanced features of BigQuery in banking
 - Clustering, table partitioning, data encryption, working with sensitive customer data
 
-### 16. Advanced Airflow Features for Banking
+### 18. Advanced Airflow Features for Banking
 - Advanced Airflow features for banking ETL workflows
 - Dynamic workflow generation, workflow scheduling based on business events, data lineage tracking
 
-### 17. Security and Compliance in Banking ETL
+### 19. Security and Compliance in Banking ETL
 - Security and compliance considerations for banking data processing
 - Data privacy, access controls, audit trails, GDPR, PCI-DSS, Basel III
 
-Please note that this learning path provides an overview of ETL, Airflow, GCP, BigQuery, and Kafka in the banking domain. You can explore each topic in more depth based on your learning needs and goals.
+### 20. Big Data Lab: Real-time Data Processing with Kafka and BigQuery
+- Build a real-time data processing pipeline using Kafka and BigQuery
+- Ingest streaming data from banking sources and perform real-time analytics
