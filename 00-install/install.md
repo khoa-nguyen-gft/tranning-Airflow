@@ -25,7 +25,10 @@ This repo is using Native Airflow that is intended to get understanding on how t
    ```
 2. Install `apache-airflow` with some libraries contraints that compatible with `AIRFLOW_VERSION` and `PYTHON_VERSION` to prevent any system break because of incompatibility
    ```bash
-   pip install apache-airflow
+   AIRFLOW_VERSION=2.0.2
+PYTHON_VERSION="$(python --version | cut -d " " -f 2 | cut -d "." -f 1-2)"
+CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_VERSION}.txt"
+pip install "apache-airflow==${AIRFLOW_VERSION}""
    ```
 3. Run `export AIRFLOW_HOME=$(pwd)` to set `AIRFLOW_HOME` variable to your current directory, but this is optional. The default value is `AIRFLOW_HOME=~/airflow` 
 
