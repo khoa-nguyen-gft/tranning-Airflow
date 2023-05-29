@@ -31,7 +31,13 @@ This repo is using Native Airflow that is intended to get understanding on how t
    pip install "apache-airflow==${AIRFLOW_VERSION}" --constraint "${CONSTRAINT_URL}"
    ```
 3. Run `export AIRFLOW_HOME=$(pwd)` to set `AIRFLOW_HOME` variable to your current directory, but this is optional. The default value is `AIRFLOW_HOME=~/airflow` 
+
 4. Run `airflow db init` to initialize SQLite Database which stores Airflow metadata based on your `AIRFLOW_HOME` variable
+   ```bash
+   export AIRFLOW_HOME=$(pwd)
+   airflow db init
+   ```
+
 5. Create user account by running
    ```bash
    AIRFLOW_USERNAME=admin
