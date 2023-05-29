@@ -10,7 +10,7 @@ ETL from flat file data sources to Data Warehouse.
 
 ## **Tech Stacks**
 1. Python (v3.8.5)
-2. Airflow (lastest)
+2. Airflow (2.6.1)
 3. Google Cloud Storage (GCS)
 4. BigQuery
 
@@ -31,7 +31,8 @@ This repo is using Native Airflow that is intended to get understanding on how t
 
 4. Run `airflow db init` to initialize SQLite Database which stores Airflow metadata based on your `AIRFLOW_HOME` variable
    ```bash
-   export AIRFLOW_HOME=$(pwd)
+   mkdir airflow
+   export AIRFLOW_HOME=$(pwd)/airflow
    airflow db init
    ```
 
@@ -67,7 +68,7 @@ This repo is using Native Airflow that is intended to get understanding on how t
 
 7. Open new terminal, run the scheduler to make your `dags` can do their tasks. Notice that you have to set the `AIRFLOW_HOME` variable again if you have set the variable before:
    ```bash
-   export AIRFLOW_HOME=$(pwd)
+   export AIRFLOW_HOME=$(pwd)/airflow
    airflow scheduler
    ``` 
 8. Voila! Just open `http://localhost:8090/` on your browser to see the Airflow web
