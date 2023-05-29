@@ -10,7 +10,7 @@ ETL from flat file data sources to Data Warehouse.
 
 ## **Tech Stacks**
 1. Python (v3.8.5)
-2. Airflow (v2.0.2)
+2. Airflow (lastest)
 3. Google Cloud Storage (GCS)
 4. BigQuery
 
@@ -25,10 +25,7 @@ This repo is using Native Airflow that is intended to get understanding on how t
    ```
 2. Install `apache-airflow` with some libraries contraints that compatible with `AIRFLOW_VERSION` and `PYTHON_VERSION` to prevent any system break because of incompatibility
    ```bash
-   AIRFLOW_VERSION=2.0.2
-   PYTHON_VERSION="$(python3 --version | cut -d " " -f 2 | cut -d "." -f 1-2)"
-   CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_VERSION}.txt"
-   pip install "apache-airflow==${AIRFLOW_VERSION}" --constraint "${CONSTRAINT_URL}"
+   pip install apache-airflow
    ```
 3. Run `export AIRFLOW_HOME=$(pwd)` to set `AIRFLOW_HOME` variable to your current directory, but this is optional. The default value is `AIRFLOW_HOME=~/airflow` 
 
@@ -62,6 +59,12 @@ This repo is using Native Airflow that is intended to get understanding on how t
    ```bash
    airflow webserver --port 8090
    ```
+   **Note:** The connection type you mentioned is indeed missing because it requires an additional Airflow Provider Package to be installed. Airflow Provider Packages are separate packages that provide integrations and additional functionality to Apache Airflow.
+   ```bash
+      pip install apache-airflow-providers-google
+   ```
+   By installing the apache-airflow-providers-google package, you will have access to the Google provider package's features and functionalities, allowing you to integrate with various Google services within your Airflow workflows.
+
 7. Open new terminal, run the scheduler to make your `dags` can do their tasks. Notice that you have to set the `AIRFLOW_HOME` variable again if you have set the variable before:
    ```bash
    export AIRFLOW_HOME=$(pwd)
