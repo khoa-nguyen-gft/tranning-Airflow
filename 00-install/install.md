@@ -20,13 +20,13 @@ ETL from flat file data sources to Data Warehouse.
 This repo is using Native Airflow that is intended to get understanding on how to setup Airflow from scratch and for the sake of learning. Here is the steps to setup:
 1. **(Highly recommended)** Create virtual environment and activate it by running
    ```bash
-   python -m venv venv 
+   python3 -m venv venv 
    source ./venv/bin/activate
    ```
 2. Install `apache-airflow` with some libraries contraints that compatible with `AIRFLOW_VERSION` and `PYTHON_VERSION` to prevent any system break because of incompatibility
    ```bash
    AIRFLOW_VERSION=2.0.2
-   PYTHON_VERSION="$(python --version | cut -d " " -f 2 | cut -d "." -f 1-2)"
+   PYTHON_VERSION="$(python3 --version | cut -d " " -f 2 | cut -d "." -f 1-2)"
    CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_VERSION}.txt"
    pip install "apache-airflow==${AIRFLOW_VERSION}" --constraint "${CONSTRAINT_URL}"
    ```
