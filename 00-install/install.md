@@ -54,14 +54,14 @@ This repo is using Native Airflow that is intended to get understanding on how t
    I'm using https://lana-k.github.io/sqliteviz/#/editor to display the SQLite data, dont be afraid as your SQLite file wont persist there.
 6. On same terminal, start the Airflow webserver with: 
    ```bash
-   airflow webserver --port 8080
+   airflow webserver --port 8090
    ```
 7. Open new terminal, run the scheduler to make your `dags` can do their tasks. Notice that you have to set the `AIRFLOW_HOME` variable again if you have set the variable before:
    ```bash
    export AIRFLOW_HOME=$(pwd)
    airflow scheduler
    ``` 
-8. Voila! Just open `http://localhost:8080/` on your browser to see the Airflow web
+8. Voila! Just open `http://localhost:8090/` on your browser to see the Airflow web
 
 Shortly, you may run `install.sh` to perform the installation. Again, you can edit `install.sh` based on needs.
 More on: https://airflow.apache.org/docs/apache-airflow/stable/start/local.html
@@ -118,7 +118,7 @@ This `json` key will be needed when adding/editing Airflow Connections later. Th
 
 ## Airflow Connections
 To connect our Airflow with external system, we need to setup connections on Airflow.
-1. On http://localhost:8080, go to **Admin > Connections**
+1. On http://localhost:8090, go to **Admin > Connections**
 2. Add or Edit current Connection. Search for Google Cloud conn type
 3. Input fields needed there:
    1. **Conn Id** (example: my_google_cloud_conn_id)
@@ -137,7 +137,7 @@ Example:
 
 ## Airflow Variables
 Airflow Variables is very important if you want to set global value which can accessed to your DAGs. Here's how to do it:
-1. On http://localhost:8080 go to **Admin > Variables**
+1. On http://localhost:8090 go to **Admin > Variables**
 2. Click the **Plus (+)** icon. Or you can just Import Variables which is json file containing key value of variables.
 3. At very least, this projects must have this Variables:
    1. **BASE_PATH**
@@ -169,6 +169,6 @@ Example:
 ## How to Use
 Everytime you want to run *Native Airflow* on your computer. Do this: 
 1. Activate your virtual environment by executing `source venv/bin/activate`
-2. Run `airflow webserver --port 8080 ` at your current terminal
+2. Run `airflow webserver --port 8090 ` at your current terminal
 3. Run `airflow scheduler` on your other terminal.
-4. Go to http://localhost:8080 
+4. Go to http://localhost:8090
