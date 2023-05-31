@@ -10,7 +10,7 @@ ETL from flat file data sources to Data Warehouse.
 
 ## **Tech Stacks**
 1. Python (v3.8.5)
-2. Airflow (v2.0.2)
+2. Airflow (2.6.1)
 3. Google Cloud Storage (GCS)
 4. BigQuery
 
@@ -20,7 +20,7 @@ ETL from flat file data sources to Data Warehouse.
 This repo is using Native Airflow that is intended to get understanding on how to setup Airflow from scratch and for the sake of learning. Here is the steps to setup:
 1. **(Highly recommended)** Create virtual environment and activate it by running
    ```bash
-   python -m venv venv 
+   python3 -m venv venv 
    source ./venv/bin/activate
    ```
 2. Install `apache-airflow` with some libraries contraints that compatible with `AIRFLOW_VERSION` and `PYTHON_VERSION` to prevent any system break because of incompatibility
@@ -28,10 +28,17 @@ This repo is using Native Airflow that is intended to get understanding on how t
    AIRFLOW_VERSION=2.0.2
    PYTHON_VERSION="$(python --version | cut -d " " -f 2 | cut -d "." -f 1-2)"
    CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_VERSION}.txt"
-   pip install "apache-airflow==${AIRFLOW_VERSION}" --constraint "${CONSTRAINT_URL}"
+   pip install "apache-airflow==${AIRFLOW_VERSION}"
    ```
 3. Run `export AIRFLOW_HOME=$(pwd)` to set `AIRFLOW_HOME` variable to your current directory, but this is optional. The default value is `AIRFLOW_HOME=~/airflow` 
+
 4. Run `airflow db init` to initialize SQLite Database which stores Airflow metadata based on your `AIRFLOW_HOME` variable
+   ```bash
+   mkdir airflow
+   export AIRFLOW_HOME=$(pwd)/airflow
+   airflow db init
+   ```
+
 5. Create user account by running
    ```bash
    AIRFLOW_USERNAME=admin
@@ -54,14 +61,20 @@ This repo is using Native Airflow that is intended to get understanding on how t
    I'm using https://lana-k.github.io/sqliteviz/#/editor to display the SQLite data, dont be afraid as your SQLite file wont persist there.
 6. On same terminal, start the Airflow webserver with: 
    ```bash
-   airflow webserver --port 8080
+   airflow webserver --port 8090
    ```
+   **Note:** The connection type you mentioned is indeed missing because it requires an additional Airflow Provider Package to be installed. Airflow Provider Packages are separate packages that provide integrations and additional functionality to Apache Airflow.
+   ```bash
+      pip install apache-airflow-providers-google
+   ```
+   By installing the apache-airflow-providers-google package, you will have access to the Google provider package's features and functionalities, allowing you to integrate with various Google services within your Airflow workflows.
+
 7. Open new terminal, run the scheduler to make your `dags` can do their tasks. Notice that you have to set the `AIRFLOW_HOME` variable again if you have set the variable before:
    ```bash
-   export AIRFLOW_HOME=$(pwd)
+   export AIRFLOW_HOME=$(pwd)/airflow
    airflow scheduler
    ``` 
-8. Voila! Just open `http://localhost:8080/` on your browser to see the Airflow web
+8. Voila! Just open `http://localhost:8090/` on your browser to see the Airflow web
 
 Shortly, you may run `install.sh` to perform the installation. Again, you can edit `install.sh` based on needs.
 More on: https://airflow.apache.org/docs/apache-airflow/stable/start/local.html
@@ -118,7 +131,7 @@ This `json` key will be needed when adding/editing Airflow Connections later. Th
 
 ## Airflow Connections
 To connect our Airflow with external system, we need to setup connections on Airflow.
-1. On http://localhost:8080, go to **Admin > Connections**
+1. On http://localhost:8090, go to **Admin > Connections**
 2. Add or Edit current Connection. Search for Google Cloud conn type
 3. Input fields needed there:
    1. **Conn Id** (example: my_google_cloud_conn_id)
@@ -137,7 +150,7 @@ Example:
 
 ## Airflow Variables
 Airflow Variables is very important if you want to set global value which can accessed to your DAGs. Here's how to do it:
-1. On http://localhost:8080 go to **Admin > Variables**
+1. On http://localhost:8090 go to **Admin > Variables**
 2. Click the **Plus (+)** icon. Or you can just Import Variables which is json file containing key value of variables.
 3. At very least, this projects must have this Variables:
    1. **BASE_PATH**
@@ -169,6 +182,6 @@ Example:
 ## How to Use
 Everytime you want to run *Native Airflow* on your computer. Do this: 
 1. Activate your virtual environment by executing `source venv/bin/activate`
-2. Run `airflow webserver --port 8080 ` at your current terminal
+2. Run `airflow webserver --port 8090 ` at your current terminal
 3. Run `airflow scheduler` on your other terminal.
-4. Go to http://localhost:8080 
+4. Go to http://localhost:8090
