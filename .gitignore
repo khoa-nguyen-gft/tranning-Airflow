@@ -5,3 +5,8 @@ airflow.db
 airflow-webserver.pid
 
 logs
+
+temps
+plugins
+configs
+airflow
