@@ -9,4 +9,7 @@ logs
 temps
 plugins
 configs
-airflow
+/*/airflow/config/
+/*/airflow/dags/__pycache__
+/*/airflow/logs/
+/*/airflow/plugins/
