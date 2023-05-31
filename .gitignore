@@ -5,3 +5,11 @@ airflow.db
 airflow-webserver.pid
 
 logs
+
+temps
+plugins
+configs
+/*/airflow/config/
+/*/airflow/dags/__pycache__
+/*/airflow/logs/
+/*/airflow/plugins/
