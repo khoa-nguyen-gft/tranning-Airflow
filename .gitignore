@@ -13,3 +13,5 @@ configs
 /*/airflow/dags/__pycache__
 /*/airflow/logs/
 /*/airflow/plugins/
+
+/*/.DS_Store
