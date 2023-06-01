@@ -1,6 +1,6 @@
 # Learning Path: Technical ETL, Airflow, GCP, BigQuery, Kafka in Banking Domain
 
-![image](./00-ETL-with-Airflow-Architecture.png)
+![image](./00-ETL-with-Airflow-Architecture.webp)
 
 ## Airflow:
 
