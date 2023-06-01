@@ -5,8 +5,8 @@
 ## Airflow:
 
 ### 1. Hello Ariflow Lab
-- [Install Airflow](./01-hello/install.md)
-- [Hello Airflow](./01-hello/hello.md)
+- [Install Airflow](./00-install/install.md)
+- [Hello Airflow](./00-install/hello.md)
 
 ### 2. [Connect Arflow with GPC](./02-gpc/02-gpc.md)
 
