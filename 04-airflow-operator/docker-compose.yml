@@ -72,6 +72,20 @@ x-airflow-common:
     # WARNING: Use _PIP_ADDITIONAL_REQUIREMENTS option ONLY for a quick checks
     # for other purpose (development, test and especially production usage) build/extend Airflow image.
     _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:-}
+
+
+    #Project variables
+    AIRFLOW__CORE__BASE_PATH: '/opt/airflow'
+    AIRFLOW__CORE__BUCKET_NAME: 'blank-space-de-batch'
+    AIRFLOW__CORE__DATASET_ID: 'devops-simple.us'
+    AIRFLOW__CORE__GOOGLE_CLOUD_CONN_ID: 'google_cloud_default'
+    AIRFLOW__CORE__PROJECT_ID: 'devops-simple'
+    AIRFLOW__CORE__TEXT: 'TEXT'
+
+    AIRFLOW__CONNECTIONS__google_cloud_default: 'google_cloud_platform://?extra__google_cloud_platform__key_path=/opt/airflow/config/bigquery-data-viewer-57f9c6eff886.json'
+    AIRFLOW__CONNECTIONS__forex_api: 'https://gist.github.com/'
+    AIRFLOW_CONN_HTTP_CONNECTION__example: http://example.com
+
   volumes:
     - ${AIRFLOW_PROJ_DIR:-.}/airflow/dags:/opt/airflow/dags
     - ${AIRFLOW_PROJ_DIR:-.}/airflow/logs:/opt/airflow/logs
@@ -79,6 +93,7 @@ x-airflow-common:
     - ${AIRFLOW_PROJ_DIR:-.}/airflow/plugins:/opt/airflow/plugins
     - ${AIRFLOW_PROJ_DIR:-.}/airflow/data:/opt/airflow/data
     - ${AIRFLOW_PROJ_DIR:-.}/airflow/sql:/opt/airflow/sql
+
 
 
   user: "${AIRFLOW_UID:-50000}:0"

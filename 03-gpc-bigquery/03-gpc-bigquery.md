@@ -47,12 +47,19 @@ Before starting this lab, make sure you have the following:
    - Set the destination file name to `extract_transform_customer_invoice_chinook.csv`.
    - Set the GCS bucket name using the `BUCKET_NAME` variable.
 
+
+   ![image](./bucket-detail.png)
+
 2. Define a task named `load_to_bigquery` to load the data from GCS to BigQuery.
    - Use the `GCSToBigQueryOperator` to load the data from GCS to BigQuery.
    - Set the GCS bucket name using the `BUCKET_NAME` variable.
    - Set the source object as `extract_transform_customer_invoice_chinook.csv`.
    - Set the destination project dataset table using the `DATASET_ID` and `BIGQUERY_TABLE_NAME` variables.
    - Define the schema fields for the destination table.
+   
+   
+
+   ![image](./bigquery.png)
 
 ### Step 4: Define the DAG structure
 
