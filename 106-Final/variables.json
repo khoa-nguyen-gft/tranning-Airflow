@@ -1,0 +1,8 @@
+{
+    "BASE_PATH": "/opt/airflow",
+    "BUCKET_NAME": "blank-space-de-batch",
+    "DATASET_ID": "devops-simple.us",
+    "GOOGLE_CLOUD_CONN_ID": "google_cloud_default",
+    "PROJECT_ID":"devops-simple",
+    "KEYFILE_PATH": "/opt/airflow/config/bigquery-data-viewer-57f9c6eff886.json"
+}
