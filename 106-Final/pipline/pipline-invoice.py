@@ -22,21 +22,19 @@ def run(args: Sequence):
     parser.add_argument("--table_id",
                         required=True,
                         help='The Table id ex: bs_customer_invoice')
-    parser.add_argument("--country_code",
-                        required=True,
-                        help='the contry code ex: India, UAS')
+    parser.add_argument("--country_codes", nargs="+", 
+                        required=True, 
+                        help='The list of country codesex: [India, USA]')
     
     parsed_args = parser.parse_known_args(args)[0]
 
     logging.info("List of args is: %s", parsed_args)
 
-
     BUCKET_NAME = parsed_args.bucket_name
     DATASET_ID = parsed_args.dataset_id
     PROJECT_ID = parsed_args.project_id 
     TABLE_ID =  parsed_args.table_id
-    COUNTRY_CODE = parsed_args.country_code
-    TARGET_TABLE = f"{TABLE_ID}_{COUNTRY_CODE}".upper()
+    COUNTRY_CODES = parsed_args.country_codes
 
     # Set up the PipelineOptions with your desired options
     options = PipelineOptions(
@@ -46,37 +44,41 @@ def run(args: Sequence):
         region="us-central1"
     )
 
-    # Create the Pipeline
-    with beam.Pipeline(options=options) as p:
-        # Read data from BigQuery
-        query = f"""
-            SELECT customer_id, 
-                full_name,
-                company,
-                billing_country,
-                total,
-            FROM [{PROJECT_ID}.{DATASET_ID}.{TABLE_ID}] 
-            where UPPER(billing_country)  = UPPER('{COUNTRY_CODE}')
-            """
-        
-        data = p | "Read from BigQuery" >> beam.io.ReadFromBigQuery(query=query)
+    for country_code in COUNTRY_CODES:
+        COUNTRY_CODE = country_code
+        TARGET_TABLE = f"{TABLE_ID}_{COUNTRY_CODE}".upper()
 
-        output_table = f"{PROJECT_ID}.{DATASET_ID}.{TARGET_TABLE}"
+        # Create the Pipeline
+        with beam.Pipeline(options=options) as p:
+            # Read data from BigQuery
+            query = f"""
+                SELECT customer_id, 
+                    full_name,
+                    company,
+                    billing_country,
+                    total,
+                FROM [{PROJECT_ID}.{DATASET_ID}.{TABLE_ID}] 
+                where UPPER(billing_country)  = UPPER('{COUNTRY_CODE}')
+                """
+            
+            data = p | "Read from BigQuery" >> beam.io.ReadFromBigQuery(query=query)
 
-        schema = """
-                customer_id:INT64, 
-                full_name:STRING, 
-                company:STRING,
-                billing_country:STRING,
-                total:FLOAT64
-                """  # Specify the schema of the output table
+            output_table = f"{PROJECT_ID}.{DATASET_ID}.{TARGET_TABLE}"
 
-        data | "Write to BigQuery" >> beam.io.WriteToBigQuery(
-            output_table,
-            schema=schema,
-            create_disposition=beam.io.BigQueryDisposition.CREATE_IF_NEEDED,
-            write_disposition=beam.io.BigQueryDisposition.WRITE_TRUNCATE
-        )
+            schema = """
+                    customer_id:INT64, 
+                    full_name:STRING, 
+                    company:STRING,
+                    billing_country:STRING,
+                    total:FLOAT64
+                    """  # Specify the schema of the output table
+
+            data | "Write to BigQuery" >> beam.io.WriteToBigQuery(
+                output_table,
+                schema=schema,
+                create_disposition=beam.io.BigQueryDisposition.CREATE_IF_NEEDED,
+                write_disposition=beam.io.BigQueryDisposition.WRITE_TRUNCATE
+            )
 
 if __name__ == "__main__":
     run(sys.argv[1:])

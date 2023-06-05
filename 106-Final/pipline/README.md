@@ -9,6 +9,6 @@
     --dataset_id=customer_invoice \
     --project_id=devops-simple \
     --table_id=bs_customer_invoice \
-    --country_code=Brazil
+    --country_codes Canada India USA
     ```
 
