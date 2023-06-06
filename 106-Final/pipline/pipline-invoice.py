@@ -1,84 +1,63 @@
 import logging
-import argparse
-import sys
-from typing import Sequence
 import apache_beam as beam
 from apache_beam.options.pipeline_options import PipelineOptions
 
 logging.basicConfig(level="INFO")
 
-def run(args: Sequence):
-    parser = argparse.ArgumentParser()
+BUCKET_NAME = '23-06-05-final-test'
+DATASET_ID = 'customer_invoice'
+PROJECT_ID = 'devops-simple' 
+TABLE_ID =  'bs_customer_invoice'
+INPUT_FILE = 'gs://23-06-05-final-test/extract_transform_customer_invoice.csv'
+TEMPALTE_NAME = 'customer_invoice_template'
+REGION_ID = 'us-central1'
+
+
+options = {
+    'project': PROJECT_ID,
+    'runner': 'DataflowRunner',
+    'region': REGION_ID,
+    'staging_location': f'gs://{BUCKET_NAME}/temp',
+    'temp_location': f'gs://{BUCKET_NAME}/temp',
+    'template_location': f'gs://{BUCKET_NAME}/template/{TEMPALTE_NAME}' 
+}
     
-    parser.add_argument("--bucket_name",
-                        required=True,
-                        help='The name of the bucket ex:23-06-05-final-test')
-    parser.add_argument("--dataset_id",
-                        required=True,
-                        help='The data set id ex: customer_invoice')
-    parser.add_argument("--project_id",
-                        required=True,
-                        help='the project id ex: devops-simple')
-    parser.add_argument("--table_id",
-                        required=True,
-                        help='The Table id ex: bs_customer_invoice')
-    parser.add_argument("--country_codes", nargs="+", 
-                        required=True, 
-                        help='The list of country codesex: [India, USA]')
-    
-    parsed_args = parser.parse_known_args(args)[0]
+pipeline_options = PipelineOptions.from_dictionary(options)
 
-    logging.info("List of args is: %s", parsed_args)
+table_source = f'{PROJECT_ID}.{DATASET_ID}.{TABLE_ID}_NEW'
+logging.info("table_source: %s", table_source)
 
-    BUCKET_NAME = parsed_args.bucket_name
-    DATASET_ID = parsed_args.dataset_id
-    PROJECT_ID = parsed_args.project_id 
-    TABLE_ID =  parsed_args.table_id
-    COUNTRY_CODES = parsed_args.country_codes
+schema = """
+        customer_id:STRING, 
+        full_name:STRING,
+        address:STRING
+    """  # Specify the schema of the output table
 
-    # Set up the PipelineOptions with your desired options
-    options = PipelineOptions(
-        runner="DirectRunner",
-        project=PROJECT_ID,  # Replace with your actual project ID
-        temp_location=f"gs://{BUCKET_NAME}/tmp",
-        region="us-central1"
+# Transform the data as needed (optional)
+# For example, you can split the lines and create dictionaries
+def create_row(element):
+    fields = element.split(',')
+    print("field: ", fields)
+    return {
+        "customer_id": fields[0],
+        "full_name": str(fields[1]) + " "+ str(fields[2]),
+        "address": str(fields[3])
+    }
+
+# Create the Pipeline
+with beam.Pipeline(options=pipeline_options) as p:
+
+    # Read the input file
+    records = (p 
+              | 'Read From File' >> beam.io.ReadFromText(INPUT_FILE)
+              | 'Create Data Rows' >> beam.Map(create_row)
     )
 
-    for country_code in COUNTRY_CODES:
-        COUNTRY_CODE = country_code
-        TARGET_TABLE = f"{TABLE_ID}_{COUNTRY_CODE}".upper()
-
-        # Create the Pipeline
-        with beam.Pipeline(options=options) as p:
-            # Read data from BigQuery
-            query = f"""
-                SELECT customer_id, 
-                    full_name,
-                    company,
-                    billing_country,
-                    total,
-                FROM [{PROJECT_ID}.{DATASET_ID}.{TABLE_ID}] 
-                where UPPER(billing_country)  = UPPER('{COUNTRY_CODE}')
-                """
-            
-            data = p | "Read from BigQuery" >> beam.io.ReadFromBigQuery(query=query)
-
-            output_table = f"{PROJECT_ID}.{DATASET_ID}.{TARGET_TABLE}"
-
-            schema = """
-                    customer_id:INT64, 
-                    full_name:STRING, 
-                    company:STRING,
-                    billing_country:STRING,
-                    total:FLOAT64
-                    """  # Specify the schema of the output table
-
-            data | "Write to BigQuery" >> beam.io.WriteToBigQuery(
-                output_table,
+    writeTable = ( records
+            | 'WriteToBigQuery' >> beam.io.WriteToBigQuery(
+                table=table_source,
                 schema=schema,
                 create_disposition=beam.io.BigQueryDisposition.CREATE_IF_NEEDED,
                 write_disposition=beam.io.BigQueryDisposition.WRITE_TRUNCATE
             )
-
-if __name__ == "__main__":
-    run(sys.argv[1:])
+    )

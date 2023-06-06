@@ -1,0 +1,7 @@
+openpyxl
+apache-beam
+apache-airflow-providers-google
+apache-airflow-providers-apache-beam[google]
+apache-beam[gcp]
+pandas
+geos
