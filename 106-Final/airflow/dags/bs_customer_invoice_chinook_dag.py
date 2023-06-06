@@ -7,9 +7,8 @@ from airflow.models.variable import Variable
 from airflow.operators.dummy import DummyOperator
 from airflow.providers.google.cloud.transfers.local_to_gcs import LocalFilesystemToGCSOperator
 from airflow.providers.google.cloud.transfers.gcs_to_bigquery import GCSToBigQueryOperator
-from airflow.providers.google.cloud.operators.dataflow import DataflowStartFlexTemplateOperator
+from airflow.providers.google.cloud.operators.dataflow import DataflowTemplatedJobStartOperator
 from datetime import datetime, timedelta
-
 
 BASE_PATH = Variable.get('BASE_PATH') or "/opt/airflow"
 GOOGLE_CLOUD_CONN_ID = Variable.get("GOOGLE_CLOUD_CONN_ID")
@@ -61,31 +60,16 @@ def bs_customer_invoice_dag():
         dst=GCS_OBJECT_NAME,
         bucket=BUCKET_NAME
     )
-
-    start_flex_template = DataflowStartFlexTemplateOperator(
-            task_id="start_ingestion_job",
-            retries=0,
-            pool="dataflow",
-            pool_slots=1,
-            execution_timeout=timedelta(minutes=240), #change from 180 min to 240 min by Ray
-            body={
-                "launchParameter": {
-                    # "containerSpecGcsPath": GCS_FLEX_TEMPLATE_PATH,
-                    "jobName": f"my-attendance-job",
-                    "parameters": {
-                        "region": "us-central1",
-                        "input": f"gs://{BUCKET_NAME}/extract_transform_customer_invoice.csv",
-                        "output": f"gs://{BUCKET_NAME}/output/out",
-                        "runner": "DataflowRunner",
-                        "project": "devops-simple",
-                        "temp_location": f"gs://{BUCKET_NAME}/temp/"
-                    }
-                }
-            },
-            wait_until_finished=True,
-            location="us-central1",
-        )
     
+    start_flex_template = DataflowTemplatedJobStartOperator(
+        task_id='start_template_job',
+        template='gs://23-06-05-final-test/template/customer_invoice_template',
+        location='us-central1',
+        project_id='devops-simple',
+        job_name='my-dataflow-job',  # Specify the desired job name here
+        gcp_conn_id=GOOGLE_CLOUD_CONN_ID,
+        wait_until_finished=True
+    )
 
     load_data_bigquery = GCSToBigQueryOperator(
         task_id='load_data_bigquery',
