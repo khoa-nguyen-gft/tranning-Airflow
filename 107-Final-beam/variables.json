@@ -1,0 +1,10 @@
+{
+    "BASE_PATH": "/opt/airflow",
+    "BUCKET_NAME": "23-06-05-final-test",
+    "DATASET_ID": "devops-simple.customer_invoice",
+    "GOOGLE_CLOUD_CONN_ID": "google_cloud_default",
+    "GOOGLE_OBJECT_NAME": "extract_transform_customer_invoice.csv",
+    "KEYFILE_PATH": "/opt/airflow/config/bigquery-data-viewer-57f9c6eff886.json",
+    "PROJECT_ID": "devops-simple",
+    "REGION_ID": "us-central1"
+}
