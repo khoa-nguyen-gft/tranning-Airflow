@@ -1,0 +1,50 @@
+
+
+# Create keyrings and key
+
+``` bash
+
+# Create a keyring
+gcloud kms keyrings create keyring-devops-simple--location global
+
+# Create a key
+gcloud kms keys create key-devops-simple --keyring keyring-devops-simple --location global --purpose encryption
+
+```
+
+#  List out keyrings and keys
+
+``` bash
+
+# list of keyrings
+# NAME: projects/devops-simple/locations/global/keyRings/devops-simple-kms
+# NAME: projects/devops-simple/locations/global/keyRings/keyring-devops-simple
+gcloud kms keyrings list --location global
+
+
+# list of keys
+KEYRING_NAME=keyring-devops-simple
+LOCATION=global
+KEY_NAME=key-devops-simple
+
+gcloud kms keys list --keyring $KEYRING_NAME --location $LOCATION
+
+```
+
+#  Example of encrypting and decrypting a file 
+
+``` bash
+
+# Declare and assign values to variables
+KEYRING_NAME=keyring-devops-simple
+LOCATION=global
+KEY_NAME=key-devops-simple
+
+# Encrypt file
+gcloud kms encrypt --key $KEY_NAME  --keyring $KEYRING_NAME --location $LOCATION --plaintext-file=department-data.txt --ciphertext-file=ciphertext-department-data.txt 
+
+
+# Decrypt file
+gcloud kms decrypt --key $KEY_NAME --keyring $KEYRING_NAME --location $LOCATION --plaintext-file=decrypted.txt --ciphertext-file=ciphertext-department-data.txt 
+
+```
