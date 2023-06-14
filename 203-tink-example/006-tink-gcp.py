@@ -46,3 +46,11 @@ try:
 except tink.TinkError as e:
     logging.error('Error encrypting data: %s', e)
     sys.exit(1)
+
+# Use env_aead to decrypt data
+try:
+    cleartext = env_aead.decrypt(ciphertext, associated_data)
+    print("cleartext:", cleartext)
+except tink.TinkError as e:
+    logging.error('Error decrypt data: %s', e)
+    sys.exit(1)
