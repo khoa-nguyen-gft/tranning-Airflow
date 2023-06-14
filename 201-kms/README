@@ -48,3 +48,18 @@ gcloud kms encrypt --key $KEY_NAME  --keyring $KEYRING_NAME --location $LOCATION
 gcloud kms decrypt --key $KEY_NAME --keyring $KEYRING_NAME --location $LOCATION --plaintext-file=decrypted.txt --ciphertext-file=ciphertext-department-data.txt 
 
 ```
+
+
+# To retrieve the key URI of a Google Cloud KMS 
+
+``` bash
+KEYRING_NAME=keyring-devops-simple
+LOCATION=global
+KEY_NAME=key-devops-simple
+
+gcloud auth login
+
+#projects/devops-simple/locations/global/keyRings/keyring-devops-simple/cryptoKeys/key-devops-simple
+gcloud kms keys describe key-devops-simple  --keyring=keyring-devops-simple --location=global --format="value(name)"
+
+```
