@@ -13,7 +13,7 @@
     --temp_location \
     gs://dataflow-apache-read_file_devops-simple/temp/
 ```
-
+./
 
 ```bash
    python3 attendance.py \
