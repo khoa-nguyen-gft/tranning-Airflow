@@ -15,6 +15,9 @@ configs
 /*/airflow/plugins/
 /*/airflow/data_output/
 
+/*/config/
+
+
 /*/.DS_Store
 /*/output
 .DS_Store
