@@ -30,10 +30,8 @@ configs
 
 references
 
-303-encription-wrapper
-303.01-encription-wrapper
+/*/gsutil
+/*/encryption_wrapper/*
 
 /*/CSV-280-MB.csv
 
-large-files
-large-files_
