@@ -12,11 +12,9 @@
 ### 1. Ariflow: 
 - Airflow is commonly used as a platform for orchestrating and managing data workflows. It provides a way to define, schedule, and monitor complex workflows consisting of tasks that need to be executed in a specific order or on a specific schedule.
     - [Why and when should I consider Airflow](./00-when/README.md)
-    - [Hello Airflow](./01-hello-airflow/README.md)
+    - [First step with Airflow](./01-hello-airflow/README.md)
+    - [Basic concepts of Airflow(DAGs, Tasks, Operators, Task dependencies)](./00-concepts/README.md)
 
-### 2. [Ariflow >> GPC](./02-gpc/02-gpc.mds)
-
-### 3. [Ariflow >> GPC >> BigQuery](./03-gpc-bigquery/03-gpc-bigquery.md)
 
 
 ## Apache Beam:
