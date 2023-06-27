@@ -15,6 +15,7 @@
     - [First step with Airflow](./01-hello-airflow/README.md)
     - [Basic concepts of Airflow(DAGs, Tasks, Operators, Task dependencies)](./00-concepts/README.md)
     - [Example of an Airflow pipelines upload data Google Cloud Storage)](./02-gpc/README.md)
+    - [Example of an Airflow pipelines upload data Google Cloud Storage and extract data into BigQuery)](./03-gpc-bigquery/README.md)
 
 
 
