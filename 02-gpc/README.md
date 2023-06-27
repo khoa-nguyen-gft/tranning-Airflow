@@ -15,6 +15,11 @@ Before starting this lab, make sure you have the following:
    - `BUCKET_NAME`: GCS bucket name for storing the extracted data.
    - `GOOGLE_CLOUD_CONN_ID`: Google Cloud connection ID for Airflow.
 
+[Variable Configuration](./variables.json)
+
+6. Verify connection between Google Cloud Platform (GCP) and Airflow.
+![Alt text](images/6.%20Verify%20connection%20between%20Google%20Cloud%20Platform.png)
+
 ## Steps
 
 ### Step 1: Set up the Airflow DAG
@@ -25,6 +30,7 @@ Before starting this lab, make sure you have the following:
    - Schedule Interval: `0 4 * * *` (to run every day at 4 AM)
    - Start Date: Select the appropriate start date for your lab
    - Tags: `csv`, `tweet`, `disaster`, `blank-space`
+
 
 ### Step 2: Define the `extract_transform` task
 
@@ -53,6 +59,15 @@ Before starting this lab, make sure you have the following:
 1. Save the DAG configuration.
 2. Trigger the DAG manually or wait for the scheduled time to start the ETL process.
 
+
+![Alt text](images/bs_disaster_dag.png)
+
+### Step 6: Verify the content in Google Cloud Storage (GCS)
+
+![Alt text](images/Step%206%3A%20Verify%20the%20content%20in%20Google%20Cloud%20Storage.png)
+
 ## Conclusion
 
 In this lab, you learned how to create an Airflow DAG for the BS Disaster ETL process. The data was extracted from a CSV file, transformed, and stored in Google Cloud Storage (GCS). You can use this lab as a starting point for building more complex ETL pipelines using Airflow.
+
+![Alt text](images/Step%205%3A%20Save%20and%20Trigger%20the%20DAG.png)

@@ -166,7 +166,7 @@ To connect our Airflow with external system, we need to setup connections on Air
    1. **Conn Id** (example: my_google_cloud_conn_id)
    2. **Conn Type**: Google Cloud
    3. **Description** (example: To interact with Google Cloud Platform such as upload data to GCS, load data from GCS to BigQuery, etc. )
-   4. **Keyfile Path**. This path is where your service account key is located. Refer to that path and fill this field with those file path.
+   4. **Keyfile Path**. This path is where your service account key is located. Refer to that path and fill this field with those file `/opt/airflow/config/bigquery-data-viewer-57f9c6eff886.json` path.
    5. **Keyfile JSON**. If you use Keyfile Path, leave this blank
    6. **Number of Retries**. Default value is 5, but I set to 2.
    7. **Project Id**. Set this value to your GCP Project Id.
