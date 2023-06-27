@@ -49,7 +49,6 @@ with DAG(
         bucket=BUCKET_NAME
     )
 
-    start >> extract_transform_task
-    extract_transform_task >> stored_data_gcs
+    start >> extract_transform_task >> stored_data_gcs
 
 bs_disaster_elt = dag

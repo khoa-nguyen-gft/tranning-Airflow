@@ -53,7 +53,7 @@ This lab demonstrates an umbrella use case with dummy operators using Airflow. T
 
 ## Conclusion
 
-![Alt text](images/Conclusion.png)
-
 In this lab, you learned how to create an Airflow DAG for an umbrella use case with dummy operators. Each task represents a step in a data pipeline, such as fetching data, cleaning data, joining datasets, training a machine learning model, and deploying the model. Dummy operators are used as placeholders for the actual work to be done in each step. You can use this lab as a starting point to build more complex data pipelines using Airflow.
+
+![Alt text](images/Conclusion.png)
 
