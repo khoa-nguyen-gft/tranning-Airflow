@@ -6,9 +6,8 @@ from airflow.utils.dates import days_ago
 from airflow.models.variable import Variable
 from airflow.operators.dummy import DummyOperator
 from airflow.providers.google.cloud.transfers.local_to_gcs import LocalFilesystemToGCSOperator
-from airflow.providers.google.cloud.transfers.gcs_to_bigquery import GCSToBigQueryOperator
 from airflow.providers.google.cloud.operators.dataflow import DataflowTemplatedJobStartOperator
-from datetime import datetime, timedelta
+from datetime import datetime
 
 BASE_PATH = Variable.get('BASE_PATH') or "/opt/airflow"
 GOOGLE_CLOUD_CONN_ID = Variable.get("GOOGLE_CLOUD_CONN_ID")
