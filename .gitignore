@@ -44,3 +44,10 @@ references
 large-files
 
 /*/__pycache__
+
+/*/gsutil
+/*/encryption_wrapper/*
+
+/*/CSV-280-MB.csv
+
+

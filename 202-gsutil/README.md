@@ -1,5 +1,6 @@
 
 
+
 ``` bash
 
 # Declare and assign values to variables
@@ -70,5 +71,6 @@ cat department-data.txt |\
     "gs://108-demo-gsutil/organizations-2000000.csv"
 
 ```
+
 
 
