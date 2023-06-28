@@ -1,11 +1,17 @@
+# Simple Tink AEAD Encryption Example
 
-Run the Python script with the desired command-line arguments to test different scenarios. Here are a few examples:
+This is a tutorial that demonstrates how to encrypt data using the AEAD (Authenticated Encryption with Associated Data) primitive in Tink.
 
-```bash
-python 008-tink-solution.py \
-    --mode encrypt \
-    --keyset_path /Users/kany/google-keys/bigquery-data-viewer-57f9c6eff886.json\
-    --input_path /Users/kany/project-local/data-home/tranning-Airflow/large-files/CSV-2.3-MB.csv \
-    --output_path output.bin
+## Prerequisites
 
-```
+Before starting, make sure you have the following:
+
+- Python installed
+- Tink library installed (can be installed using `pip install tink`)
+- Read and Understand the file [003-ciphertext.py](./003-ciphertext.py)
+
+
+## Run the Code
+Save the file and run it using the command `python 003-ciphertext.py`. The output should include the generated ciphertext.
+
+Note: Remember to handle the encryption key securely and store it appropriately to ensure the security of your encrypted data.
