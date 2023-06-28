@@ -4,11 +4,11 @@ from apache_beam.options.pipeline_options import PipelineOptions
 
 logging.basicConfig(level="INFO")
 
-BUCKET_NAME = '23-06-05-final-test'
+BUCKET_NAME = 'gft-demo-gcs-bucket'
 DATASET_ID = 'customer_invoice'
 PROJECT_ID = 'devops-simple' 
 TABLE_ID =  'bs_customer_invoice'
-INPUT_FILE = 'gs://23-06-05-final-test/data/extract_transform_customer_invoice.csv'
+INPUT_FILE = f'gs://{BUCKET_NAME}/input/extract_transform_customer_invoice.csv'
 TEMPALTE_NAME = 'customer_invoice_template'
 REGION_ID = 'us-central1'
 
