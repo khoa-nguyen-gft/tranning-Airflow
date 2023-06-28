@@ -30,8 +30,24 @@ configs
 
 references
 
+303-encription-wrapper
+303.01-encription-wrapper
+303.02-encription-descript-wrapper
+303.02-encrypt-decrypt-wrapper
+303.03-encrypt-decrypt-wrapper
+304-ingestion-pipline
+304.01-ingestion-pipline
+304.02-ingestion-pipline
+304.03-ingestion-pipline-arflow
+
+/*/**.csv
+large-files
+
+/*/__pycache__
+
 /*/gsutil
 /*/encryption_wrapper/*
 
 /*/CSV-280-MB.csv
+
 
