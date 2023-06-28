@@ -30,3 +30,5 @@ python3 pipline/pipline-invoice.py
 
 
 ![Alt text](images/Step%203%3A%20Execute%20the%20DAG%20bs_customer_invoice_dag.png)
+
+![Alt text](images/bigQuery.png)
