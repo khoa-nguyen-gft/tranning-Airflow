@@ -45,9 +45,10 @@
 
 
 ## Google KMS and Goole Tink:
+![Alt text](images/Google%20KMS%20and%20Goole%20Tink.png)
 - Google Cloud Key Management Service (KMS) and Google Tink are both cryptographic tools provided by Google for secure data management and encryption. While they serve similar purposes, they have different functionalities and use cases.
 
-![Alt text](images/Google%20KMS%20and%20Goole%20Tink.png)
+
     - `Google Cloud KMS`: is a cloud-based key management service that allows you to generate, use, rotate, and manage cryptographic keys for securing data and resources in Google Cloud Platform (GCP).
 
     - `Google Tink`: is an open-source, multi-language cryptographic library that provides a collection of cryptographic APIs and tools for developers. Tink is designed to simplify the process of implementing secure cryptographic operations and best practices.
