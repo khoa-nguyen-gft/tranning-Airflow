@@ -27,21 +27,25 @@ In summary, Apache Beam is the programming model and API, while Google Cloud Dat
 
 ## Run an example pipeline in Dataflow as a job
 
-A common example pipeline for Apache Beam is WordCount, which counts the unique words in an input text file—in this case, Shakespeare's King Lear.
+A common example pipeline for Apache Beam is [WordCount](https://github.com/apache/beam/blob/master/sdks/python/apache_beam/examples/wordcount.py), which counts the unique words in an input text file—in this case, Shakespeare's King Lear.
 
 
-```bash
+```python
     python3 -m \
     apache_beam.examples.wordcount \
     --job_name my-wordcount-job \
     --runner DataflowRunner \
-    --region us-central1 --input \
+    --region us-central1 \
+    --input \
     gs://dataflow-samples/shakespeare/kinglear.txt \
     --output \
     gs://gft-demo-gcs-bucket/results/output \
     --project devops-simple \
     --temp_location \
     gs://gft-demo-gcs-bucket/temp/
+
+
 ```
+
 
 ![Alt text](images/Run%20an%20example%20pipeline%20in%20Dataflow%20as%20a%20job.png)
