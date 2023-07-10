@@ -1,4 +1,4 @@
-# Lab Praccties Apache Beam
+# Lab Practies Apache Beam
 
 - [`001-department-pipeline.py`](./001-department-pipline.py): This module introduces the concept of pipelines and how they are used in data processing. It covers basic pipeline setup and execution.
 
