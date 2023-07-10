@@ -30,7 +30,8 @@
 ![Alt text](images/Apache%20Beam.png)
 - [Why and when should I consider Apache Beam](./050-beam/README.md)
 - [First step with Apache Beam](./051-hello-beam/README.md)
-- [Basic concepts of Apache Beam(DAGs, Tasks, Operators, Task dependencies)](./052-beam-components/README.md)
+- [Basic concepts of Apache Beam(Pipeline, PCollection, PTransform, ParDo, GroupByKey, I/O Connectors
+, Runners)](./052-beam-components/README.md)
 - [Examples of Apache Beam to practice](./053-practices-beam/README.md)
 
 
@@ -45,7 +46,6 @@
 
 
 ## Google KMS and Goole Tink:
-![Alt text](images/Google%20KMS%20and%20Goole%20Tink.png)
 - Google Cloud Key Management Service (KMS) and Google Tink are both cryptographic tools provided by Google for secure data management and encryption. While they serve similar purposes, they have different functionalities and use cases.
 
 
@@ -53,6 +53,11 @@
 
     - `Google Tink`: is an open-source, multi-language cryptographic library that provides a collection of cryptographic APIs and tools for developers. Tink is designed to simplify the process of implementing secure cryptographic operations and best practices.
 
-    - [Hello Keyring and Key in Google KMS ](./107-kms/README.md)
-    - [Simple Tink AEAD Encryption Example](./203-tink-example/README.md)
-    - [Encrypt the large file with Tink and KMS](./204-tink-streaming_aead/README.md)
+    ![Alt text](images/Google%20KMS%20and%20Goole%20Tink.png)
+
+
+- [Hello Keyring and Key in Google KMS ](./107-kms/README.md)
+- [Simple Tink AEAD Encryption Example](./203-tink-example/README.md)
+- [Encrypt the large file with Tink and KMS](./204-tink-streaming_aead/README.md)
+
+
