@@ -16,7 +16,7 @@ ETL from flat file data sources to Data Warehouse.
 
 ## **Installation Setup**
 ### Setup Airflow
-#### - **Native Airflow**
+#### A) **Native Airflow**
 This repo is using Native Airflow that is intended to get understanding on how to setup Airflow from scratch and for the sake of learning. Here is the steps to setup:
 1. **(Highly recommended)** Create virtual environment and activate it by running
    ```bash
@@ -79,7 +79,9 @@ This repo is using Native Airflow that is intended to get understanding on how t
 Shortly, you may run `install.sh` to perform the installation. Again, you can edit `install.sh` based on needs.
 More on: https://airflow.apache.org/docs/apache-airflow/stable/start/local.html
 
-#### - **Alternative: Use Airflow Docker**
+---
+
+#### B) **Alternative: Use Airflow Docker**
 But if you wish to use the Docker Airflow instead you can lookup to `docker-compose.yaml` file and refer to this tutorial: https://airflow.apache.org/docs/apache-airflow/stable/start/docker.html . 
 
 If you need to install other dependecies other than what have been installed by the airflow docker image, please refer to this page: https://airflow.apache.org/docs/apache-airflow/1.10.13/production-deployment.html#extending-the-image
