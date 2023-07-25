@@ -60,6 +60,6 @@
 - [[Lab]First step with Keyring and Key in Google KMS ](./107-kms/README.md)
 - [[Lab] Simple Tink AEAD Encryption Example](./203-tink-example/README.md)
 - [[Lab] Encrypt the large file with Tink and KMS](./204-tink-streaming_aead/README.md)
-- [[Lab] Encrypt the large file with Tink and KMS for client's source](./205-apply-tink-streaming-to-client-source/README.md)
+- [[Lab] Resolve out of Memory issue](./205-apply-tink-streaming-to-client-source/README.md): An issue arises when the client attempts to encrypt a large file for uploading it to the cloud or when the file is too large to decrypt and extract data into Google BigQuery
 
 
