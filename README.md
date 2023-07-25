@@ -28,11 +28,11 @@
 - The main goal of Apache Beam is to abstract away the complexities of distributed data processing and provide a consistent model for both batch and stream processing. It enables developers to focus on the logic of their data pipelines rather than the underlying execution engine.
 
 ![Alt text](images/Apache%20Beam.png)
+
 - [Why and when should I consider Apache Beam](./050-beam/README.md)
-- [First step with Apache Beam](./051-hello-beam/README.md)
-- [Basic concepts of Apache Beam(Pipeline, PCollection, PTransform, ParDo, GroupByKey, I/O Connectors
-, Runners)](./052-beam-components/README.md)
-- [Examples of Apache Beam to practice](./053-practices-beam/README.md)
+- [[Lab]First step with Apache Beam](./051-hello-beam/README.md)
+- [Basic concepts of Apache Beam(Pipeline, PCollection, PTransform, ParDo, GroupByKey, I/O Connectors, Runners)](./052-beam-components/README.md)
+- [[Lab] Apache Beam to practice](./053-practices-beam/README.md)
 
 
 ## Google Cloud Dataflow:
