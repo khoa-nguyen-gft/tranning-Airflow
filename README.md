@@ -40,8 +40,8 @@
 
 ![Alt text](images/Google%20Cloud%20Dataflow.png)
 - [Apache Beam and Google Cloud Dataflow](./102-beam-cmd/README.md)
-- [Create Google Cloud Template And Execute The Template](./103-beam-python/README.md)
-- [Example Full workflow Arflow, Apache Beam and Google Cloud Platform (GCP)](./106.01-Final-clean/README.md)
+- [[Lab] Create Google Cloud Template And Execute The Template](./103-beam-python/README.md)
+- [[Lab Final] Full workflow Arflow, Apache Beam and Google Cloud Platform (GCP)](./106.01-Final-clean/README.md)
 
 
 
