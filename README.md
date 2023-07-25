@@ -56,8 +56,9 @@
     ![Alt text](images/Google%20KMS%20and%20Goole%20Tink.png)
 
 
-- [Hello Keyring and Key in Google KMS ](./107-kms/README.md)
-- [Simple Tink AEAD Encryption Example](./203-tink-example/README.md)
-- [Encrypt the large file with Tink and KMS](./204-tink-streaming_aead/README.md)
+
+- [[Lab]First step with Keyring and Key in Google KMS ](./107-kms/README.md)
+- [[Lab] Simple Tink AEAD Encryption Example](./203-tink-example/README.md)
+- [[Lab] Encrypt the large file with Tink and KMS](./204-tink-streaming_aead/README.md)
 
 
