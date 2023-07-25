@@ -82,9 +82,11 @@ python3.8 testing/test_stream_decrypt.py \
 
 ##  2) GCP ingestion
 
+This guide provides step-by-step instructions on how to run a data load using Google Cloud Dataflow. The data load involves processing and loading data from an interface file into a target BigQuery table, while also encrypting the data for added security.
+
+
 ![Alt text](images/GCP-ingestion.png)
 
-This guide provides step-by-step instructions on how to run a data load using Google Cloud Dataflow. The data load involves processing and loading data from an interface file into a target BigQuery table, while also encrypting the data for added security.
 
 
 ### a) Initialize Environment
