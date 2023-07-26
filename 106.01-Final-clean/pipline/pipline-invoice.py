@@ -8,7 +8,7 @@ BUCKET_NAME = 'gft-demo-gcs-bucket'
 DATASET_ID = 'customer_invoice'
 PROJECT_ID = 'devops-simple' 
 TABLE_ID =  'bs_customer_invoice'
-INPUT_FILE = f'gs://{BUCKET_NAME}/input/extract_transform_customer_invoice.csv'
+INPUT_FILE = f'gs://{BUCKET_NAME}/data/extract_transform_customer_invoice.csv'
 TEMPALTE_NAME = 'customer_invoice_template'
 REGION_ID = 'us-central1'
 

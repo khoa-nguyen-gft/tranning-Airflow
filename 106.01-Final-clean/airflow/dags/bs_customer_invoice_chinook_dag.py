@@ -31,7 +31,7 @@ BIGQUERY_TABLE_NAME = "bs_customer_invoice"
 @dag(
     default_args={
         'owner': 'okza',
-        'email': 'datokza@gmail.com',
+        'email': 'npdangkhoa2020@gmail.com',
         'email_on_failure': True
     },
     schedule_interval='0 4 * * *',

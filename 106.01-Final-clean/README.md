@@ -6,6 +6,15 @@
 
 To implement Full workflow Arflow, Apache Beam and Google Cloud Platform (GCP), follow the steps below:
 
+
+## Step 0:  **(Highly recommended)** Create virtual environment and activate it by running
+   ```bash
+   python3 -m venv venv 
+   source ./venv/bin/activate
+   cd 106.01-Final-clean
+   pip install -r requirements.txt
+   ```
+
 ## Step 1: Set up environment variables
 
 ```bash
