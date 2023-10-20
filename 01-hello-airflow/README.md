@@ -44,7 +44,7 @@ This lab demonstrates an umbrella use case with dummy operators using Airflow. T
 
 ![Alt text](images/Step%203%3A%20Set%20task%20dependencies.png)
 
-### Step 4: Save and Trigger the DAG
+### Step 4: Save and Trigger the DAG (Directed Acyclic Graph)
 
 1. Save the DAG configuration.
 2. Trigger the DAG manually or wait for the scheduled time to start the data pipeline.
