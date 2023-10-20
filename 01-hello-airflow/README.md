@@ -11,7 +11,7 @@ This lab demonstrates an umbrella use case with dummy operators using Airflow. T
 
 ![Alt text](./images/Step%200%3A%20Start%20Airflow%20server.png)
 
-### Step 1: Set up the Airflow DAG
+### Step 1: Set up the Airflow DAG (Directed Acyclic Graph)
 
 1. Open the Airflow web UI.
 2. Create a new DAG named `01_umbrella`.
